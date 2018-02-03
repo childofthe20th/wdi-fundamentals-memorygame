@@ -1,28 +1,26 @@
 console.log("Up and running!");
 
-var cards = ["queen", "king", "queen", "king"];
+var cards = ["queen", "queen", "king", "king"];
 // Created array for all four suits
 
 var cardsInPlay = [];
 // Created array for cards in play
 
-var cardOne = cards[0];
-cardsInPlay.push(cardOne);
-// Defined first card and added it to cards in play array
-
-console.log("User flipped " + cardOne);
-
-var cardTwo = cards[1];
-cardsInPlay.push(cardTwo);
-// Defined second card and added it to cards in play array
-
-console.log("User flipped " + cardTwo);
-
-if (cardsInPlay.length === 2) {
+var checkForMatch = function () {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
 		alert("You found a match!");
-	} else  {
+	} else {
 		alert("Sorry, try again.");
 	}
 }
-// Set logic for matching two cards in play
+
+var flipCard = function (cardId) {
+	console.log("User flipped " + cards[cardId]);
+	cardsInPlay.push(cards[cardId]);
+		if (cardsInPlay.length === 2) {
+			checkForMatch();
+		}
+};
+
+flipCard(0);
+flipCard(2);
